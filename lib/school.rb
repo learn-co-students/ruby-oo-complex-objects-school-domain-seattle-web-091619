@@ -1,26 +1,43 @@
-class School
-  attr_accessor :name, :roster
+# code here!
+#require "pry"
+class School 
 
-  def initialize(name)
-    @name = name
-    @roster = {}
+  attr_accessor :school, :roster
+  
+  
+  def initialize(school)
+     @school = school
+  
+      @roster = {}
+  
   end
-
-  def add_student(student_name, grade)
-    roster[grade] ||= []
-    roster[grade] << student_name
+  
+  
+  def grade(grades)
+  @roster[grades]
   end
-
-  def grade(student_grade)
-    roster[student_grade]
-  end
-
-  # this method should arrange the students in each grade by alphabetical order
+  
+  def add_student (student, age)
+   #   @roster = {}
+      c =@roster[age]
+      if (c == nil) 
+     @roster[age] = []
+     #binding.pry
+      end
+      @roster[age].push(student.to_s)
+  return @roster
+  end 
+  
   def sort
-    sorted = {}
-    roster.each do |grade, students|
-      sorted[grade] = students.sort
-    end
-    sorted
+      @roster[7].sort!
+      @roster[9].sort!
+      @roster[10].sort!
+      @roster
   end
-end
+  
+  
+  
+  end
+  
+  k = School.new("Degeissdt - school of hard knocks")
+  puts k.roster
